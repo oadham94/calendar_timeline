@@ -53,8 +53,8 @@ class DayItem extends StatelessWidget {
                     Theme.of(context).colorScheme.secondary,
                 borderRadius: BorderRadius.circular(12),
               )
-            : const BoxDecoration(color: Colors.transparent),
-        height: shrink ? 40 : 70,
+            : BoxDecoration(color: Theme.of(context).colorScheme.secondary.withOpacity(0.5),borderRadius: BorderRadius.circular(12),),
+        height: shrink ? 60 : 80,
         width: shrink ? 33 : 60,
         child: Column(
           children: <Widget>[
@@ -68,15 +68,23 @@ class DayItem extends StatelessWidget {
               dayNumber.toString(),
               style: isSelected ? selectedStyle : textStyle,
             ),
-            if (isSelected)
+         (isSelected)?
               Text(
                 shortName,
                 style: TextStyle(
                   color: dayNameColor ?? activeDayColor ?? Colors.white,
                   fontWeight: FontWeight.bold,
-                  fontSize: shrink ? 9 : 14,
+                  fontSize: shrink ? 5 : 10,
                 ),
+              ):
+              Text(
+              shortName,
+              style: TextStyle(
+                color: dayNameColor ?? dayColor,
+                fontWeight: FontWeight.bold,
+                fontSize: shrink ? 5 : 10,
               ),
+            ),
           ],
         ),
       ),

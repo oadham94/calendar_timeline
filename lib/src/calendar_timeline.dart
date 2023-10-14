@@ -311,7 +311,7 @@ class _CalendarTimelineState extends State<CalendarTimeline> {
     _scrollAlignment = widget.leftMargin / MediaQuery.of(context).size.width;
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
-      mainAxisSize: MainAxisSize.min,
+      mainAxisSize: MainAxisSize.max,
       children: <Widget>[
         if (widget.showYears) _buildYearList(),
         _buildMonthList(),
@@ -338,7 +338,7 @@ class _CalendarTimelineState extends State<CalendarTimeline> {
           final yearName = DateFormat.y(_locale).format(currentDate);
 
           return Padding(
-            padding: const EdgeInsets.only(right: 12, left: 4),
+            padding: const EdgeInsets.only(right: 4, left: 4),
             child: Row(
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -351,13 +351,7 @@ class _CalendarTimelineState extends State<CalendarTimeline> {
                   small: false,
                   shrink: widget.shrink,
                 ),
-                if (index == _years.length - 1)
-                  // Last element to take space to do scroll to left side
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width -
-                        widget.leftMargin -
-                        (yearName.length * 10),
-                  )
+               
               ],
             ),
           );
@@ -371,7 +365,7 @@ class _CalendarTimelineState extends State<CalendarTimeline> {
   /// months in the calendar and the small version of [YearItem] for each year in between
   Widget _buildMonthList() {
     return SizedBox(
-      height: 30,
+      height: 70,
       child: ScrollablePositionedList.builder(
         initialScrollIndex: _monthSelectedIndex ?? 0,
         initialAlignment: _scrollAlignment,
@@ -384,7 +378,7 @@ class _CalendarTimelineState extends State<CalendarTimeline> {
           final monthName = DateFormat.MMMM(_locale).format(currentDate);
 
           return Padding(
-            padding: const EdgeInsets.only(right: 12, left: 4),
+            padding: const EdgeInsets.only(right: 4, left:4),
             child: Row(
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -409,13 +403,6 @@ class _CalendarTimelineState extends State<CalendarTimeline> {
                   shrink: widget.shrink,
                   activeColor: widget.activeBackgroundDayColor,
                 ),
-                if (index == _months.length - 1)
-                  // Last element to take space to do scroll to left side
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width -
-                        widget.leftMargin -
-                        (monthName.length * 10),
-                  )
               ],
             ),
           );
@@ -443,13 +430,11 @@ class _CalendarTimelineState extends State<CalendarTimeline> {
           final shortName =
               DateFormat.E(_locale).format(currentDay).capitalize();
           return Row(
-            children: <Widget>[
+            children: <Widget>[SizedBox(width: 10,),
               DayItem(
                 isSelected: _isSelectedDay(index),
                 dayNumber: currentDay.day,
-                shortName: shortName.length > 3
-                    ? shortName.substring(0, 3)
-                    : shortName,
+                shortName: shortName,
                 onTap: () => _onSelectDay(index),
                 available: widget.selectableDayPredicate == null ||
                     widget.selectableDayPredicate!(currentDay),
@@ -460,13 +445,7 @@ class _CalendarTimelineState extends State<CalendarTimeline> {
                 dayNameColor: widget.dayNameColor,
                 shrink: widget.shrink,
               ),
-              if (index == _days.length - 1)
-                // Last element to take space to do scroll to left side
-                SizedBox(
-                  width: MediaQuery.of(context).size.width -
-                      widget.leftMargin -
-                      65,
-                )
+            
             ],
           );
         },

@@ -233,11 +233,13 @@ class _CalendarTimelineState extends State<CalendarTimeline> {
   /// Scroll to index day
   void _moveToDayIndex(int index) {
     if (_controllerDay.isAttached) {
+      (widget.locale == "ar") ? _controllerDay.jumpTo(
+         index: index, alignment: 0) :
       _controllerDay.scrollTo(
         index: index,
         alignment: _scrollAlignment,
         duration: const Duration(milliseconds: 500),
-        curve: Curves.easeIn,
+        curve: Curves.linear,
       );
     }
   }
@@ -428,7 +430,7 @@ class _CalendarTimelineState extends State<CalendarTimeline> {
         itemBuilder: (BuildContext context, int index) {
           final currentDay = _days[index];
           final shortName =
-              DateFormat.E(_locale).format(currentDay).capitalize();
+              DateFormat.EEEE(_locale).format(currentDay).capitalize();
           return Row(
             children: <Widget>[SizedBox(width: 10,),
               DayItem(

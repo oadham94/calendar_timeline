@@ -208,7 +208,8 @@ class _CalendarTimelineState extends State<CalendarTimeline> {
 
   /// Scroll to index year
   void _moveToYearIndex(int index) {
-    if (_controllerYear.isAttached) {
+    if (_controllerYear.isAttached) {widget.locale == "ar") ? _controllerYear.jumpTo(
+         index: index, alignment: 0) :
       _controllerYear.scrollTo(
         index: index,
         alignment: _scrollAlignment,
@@ -220,7 +221,8 @@ class _CalendarTimelineState extends State<CalendarTimeline> {
 
   /// Scroll to index month
   void _moveToMonthIndex(int index) {
-    if (_controllerMonth.isAttached) {
+    if (_controllerMonth.isAttached) { (widget.locale == "ar") ? _controllerMonth.jumpTo(
+         index: index, alignment: 0) :
       _controllerMonth.scrollTo(
         index: index,
         alignment: _scrollAlignment,

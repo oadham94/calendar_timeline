@@ -208,7 +208,7 @@ class _CalendarTimelineState extends State<CalendarTimeline> {
 
   /// Scroll to index year
   void _moveToYearIndex(int index) {
-    if (_controllerYear.isAttached) {widget.locale == "ar") ? _controllerYear.jumpTo(
+    if (_controllerYear.isAttached) {(widget.locale == "ar") ? _controllerYear.jumpTo(
          index: index, alignment: 0) :
       _controllerYear.scrollTo(
         index: index,

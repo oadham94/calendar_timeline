@@ -428,7 +428,7 @@ class _CalendarTimelineState extends State<CalendarTimeline> {
         initialAlignment: _scrollAlignment,
         scrollDirection: Axis.horizontal,
         itemCount: _days.length,
-        padding: EdgeInsets.only(left: widget.leftMargin, right: 6,bottom: 6),
+        padding: EdgeInsets.only(left: widget.leftMargin, right: 6),
         itemBuilder: (BuildContext context, int index) {
           final currentDay = _days[index];
           final shortName =

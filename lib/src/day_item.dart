@@ -54,7 +54,7 @@ class DayItem extends StatelessWidget {
                 borderRadius: BorderRadius.circular(12),
               )
             : BoxDecoration(color: Theme.of(context).colorScheme.secondary.withOpacity(0.5),borderRadius: BorderRadius.circular(12),),
-        height: shrink ? 60 : 80,
+        height: 80,
         width: shrink ? 33 : 60,
         child: Column(
           children: <Widget>[

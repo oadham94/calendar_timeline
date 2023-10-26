@@ -421,7 +421,7 @@ class _CalendarTimelineState extends State<CalendarTimeline> {
   Widget _buildDayList() {
     return SizedBox(
       key: const Key('ScrollableDayList'),
-      height: 70,
+      height: 75,
       child: ScrollablePositionedList.builder(
         itemScrollController: _controllerDay,
         initialScrollIndex: _daySelectedIndex ?? 0,

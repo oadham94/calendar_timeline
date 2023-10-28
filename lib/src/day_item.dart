@@ -49,11 +49,11 @@ class DayItem extends StatelessWidget {
       child: Container(
         decoration: isSelected
             ? BoxDecoration(
-                color: (activeDayBackgroundColor.withOpacity(0.5)) ??
+                color: activeDayBackgroundColor ??
                     Theme.of(context).colorScheme.secondary,
                 borderRadius: BorderRadius.circular(12),
               )
-            : BoxDecoration(color: activeDayBackgroundColor.withOpacity(0.5)??Theme.of(context).colorScheme.secondary.withOpacity(0.5),borderRadius: BorderRadius.circular(12),),
+            : BoxDecoration(color: (activeDayBackgroundColor.withOpacity(0.5))??Theme.of(context).colorScheme.secondary.withOpacity(0.5),borderRadius: BorderRadius.circular(12),),
         height: 80,
         width: shrink ? 33 : 60,
         child: Column(

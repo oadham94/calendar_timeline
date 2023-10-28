@@ -49,7 +49,7 @@ class DayItem extends StatelessWidget {
       child: Container(
         decoration: isSelected
             ? BoxDecoration(
-                color: activeDayBackgroundColor ??
+                color: (activeDayBackgroundColor.withOpacity(0.5)) ??
                     Theme.of(context).colorScheme.secondary,
                 borderRadius: BorderRadius.circular(12),
               )
